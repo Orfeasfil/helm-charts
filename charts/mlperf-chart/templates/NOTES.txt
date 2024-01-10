@@ -1,1 +1,0 @@
-This helm chart provides mlperf client-server functionalities
