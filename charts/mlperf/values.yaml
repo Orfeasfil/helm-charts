@@ -1,0 +1,25 @@
+# Default values for mlperf-chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+client:
+  name: mlperf-client
+  image:
+    repo: "tl2140"
+    image: "mlperf-slient-server"
+    tag: "client_cpu"
+  clustersAffinity:
+    - karmada-cluster-1
+  serviceImportPort: 80
+
+server:
+  name: mlperf-server
+  image:
+    repo: "tl2140"
+    image: "mlperf-slient-server"
+    tag: "server_cpu"
+    port: 8000
+  clustersAffinity:
+    - karmada-cluster-2
+  serviceExportPort: 80
+    

@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ .Values.client.name }}"
+  namespace: mlperf
+  labels:
+    app: "{{ .Values.client.name }}"
+spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: "{{ .Values.client.name }}"
+  template:
+    metadata:
+      labels:
+        app: "{{ .Values.client.name }}"
+    spec:
+      containers:
+      - name: "{{ .Values.client.name }}"
+        image: {{ .Values.client.image.repo }}/{{ .Values.client.image.repo }}:{{ .Values.client.image.tag }}
+        imagePullPolicy: Always
+        env:
+        - name: SERVER_ADDR
+          value: "http://derived-{{ .Values.server.name}}.mlperf.svc.cluster.local"
+---
+apiVersion: policy.karmada.io/v1alpha1
+kind: PropagationPolicy
+metadata:
+  name: "{{ .Values.client.name }}"
+  namespace: mlperf
+spec:
+  resourceSelectors:
+    - apiVersion: apps/v1
+      kind: Deployment
+      namespace: mlperf
+      name: "{{ .Values.client.name }}"
+    - apiVersion: v1
+      kind: Service
+      namespace: mlperf
+      name: "{{ .Values.client.name }}"
+  placement:
+    clusterAffinity:
+      clusterNames:
+        {{- range .Values.client.clustersAffinity }}
+        - {{ . }}
+        {{- end }}
