@@ -21,6 +21,18 @@ spec:
         ports:
         - containerPort: {{ .Values.server.image.port }}
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.server.name }}
+  namespace: mlperf
+spec:
+  ports:
+  - port: 80
+    targetPort: 8000
+  selector:
+    app: {{ .Values.server.name }}
+---
 apiVersion: policy.karmada.io/v1alpha1
 kind: PropagationPolicy
 metadata:
