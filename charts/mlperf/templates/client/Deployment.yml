@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: "{{ .Values.client.name }}"
-        image: {{ .Values.client.image.repo }}/{{ .Values.client.image.repo }}:{{ .Values.client.image.tag }}
+        image: {{ .Values.client.image.repo }}/{{ .Values.client.image.image }}:{{ .Values.client.image.tag }}
         imagePullPolicy: Always
         env:
         - name: SERVER_ADDR
