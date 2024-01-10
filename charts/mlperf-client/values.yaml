@@ -1,0 +1,8 @@
+name: mlperf-client
+image:
+  repo: "tl2140"
+  image: "mlperf-slient-server"
+  tag: "client_cpu"
+clustersAffinity:
+  - karmada-cluster-1
+serviceImportPort: 80
