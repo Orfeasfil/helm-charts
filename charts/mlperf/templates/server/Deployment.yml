@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "{{ .Values.server.name }}"
+  name: {{ .Values.server.name }}
   namespace: mlperf
   labels:
-    app: "{{ .Values.server.name }}"
+    app: {{ .Values.server.name }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: "{{ .Values.server.name }}"
+      app: {{ .Values.server.name }}
   template:
     metadata:
       labels:
-        app: "{{ .Values.server.name }}"
+        app: {{ .Values.server.name }}
     spec:
       containers:
-      - name: "{{ .Values.server.name }}"
+      - name: {{ .Values.server.name }}
         image: {{ .Values.server.image.repo }}/{{ .Values.server.image.image }}:{{ .Values.server.image.tag }}
         ports:
         - containerPort: {{ .Values.server.image.port }}
@@ -24,18 +24,18 @@ spec:
 apiVersion: policy.karmada.io/v1alpha1
 kind: PropagationPolicy
 metadata:
-  name: "{{ .Values.server.name }}"
+  name: {{ .Values.server.name }}
   namespace: mlperf
 spec:
   resourceSelectors:
     - apiVersion: apps/v1
       kind: Deployment
       namespace: mlperf
-      name: "{{ .Values.server.name }}"
+      name: {{ .Values.server.name }}
     - apiVersion: v1
       kind: Service
       namespace: mlperf
-      name: "{{ .Values.server.name }}"
+      name: {{ .Values.server.name }}
   placement:
     clusterAffinity:
       clusterNames:
