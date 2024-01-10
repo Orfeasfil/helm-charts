@@ -3,6 +3,18 @@ entries:
   mlperf:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2024-01-10T13:09:00.354750223Z"
+    description: A Helm chart for Karmada that deploys a mlperf client and a mlperf
+      server. The client is deployed in client.clustersAffinity clusters and the server
+      is deployed in server.clustersAffinity clusters.
+    digest: 8f3de396e07033c54f5dd1c5e37ba2f9dce2de321feb58eb292459762cb40fa2
+    name: mlperf
+    type: application
+    urls:
+    - https://github.com/Orfeasfil/helm-charts/releases/download/mlperf-0.1.4/mlperf-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2024-01-10T13:01:03.131505305Z"
     description: A Helm chart for Karmada that deploys a mlperf client and a mlperf
       server. The client is deployed in client.clustersAffinity clusters and the server
@@ -50,4 +62,4 @@ entries:
     urls:
     - https://github.com/Orfeasfil/helm-charts/releases/download/mlperf-chart-0.1.0/mlperf-chart-0.1.0.tgz
     version: 0.1.0
-generated: "2024-01-10T13:01:03.131519832Z"
+generated: "2024-01-10T13:09:00.354765681Z"
