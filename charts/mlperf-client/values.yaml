@@ -6,4 +6,4 @@ image:
 clustersAffinity:
   - karmada-cluster-1
 serviceImportPort: 80
-serviceImportName: "mlperf-server"
+serviceImportName: mlperf-server
