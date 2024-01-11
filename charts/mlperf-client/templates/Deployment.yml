@@ -21,7 +21,7 @@ spec:
         imagePullPolicy: Always
         env:
         - name: SERVER_ADDR
-          value: "http://derived-{{ .Values.serviceImportName}}.mlperf.svc.cluster.local"
+          value: "http://derived-{{ .Values.serviceImportName }}.mlperf.svc.cluster.local"
 ---
 apiVersion: policy.karmada.io/v1alpha1
 kind: PropagationPolicy
