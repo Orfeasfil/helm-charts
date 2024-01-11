@@ -1,7 +1,7 @@
 apiVersion: multicluster.x-k8s.io/v1alpha1
 kind: ServiceImport
 metadata:
-  name: {{ .Values.name }}
+  name: {{ .Values.serviceImportName }}
   namespace: mlperf
 spec:
   type: ClusterSetIP
