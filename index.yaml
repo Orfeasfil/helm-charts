@@ -88,6 +88,16 @@ entries:
   mlperf-client-flux:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2024-01-11T16:18:26.103143885Z"
+    description: A Helm chart for Kubernetes
+    digest: b1dbe51c1d078d52d92c5312d6338cb8f521f2bcb26b8380469cedc7f75ce48b
+    name: mlperf-client-flux
+    type: application
+    urls:
+    - https://github.com/Orfeasfil/helm-charts/releases/download/mlperf-client-flux-0.1.1/mlperf-client-flux-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2024-01-11T16:10:46.393291849Z"
     description: A Helm chart for Kubernetes
     digest: 6817633fe2e593acfa37a853544bb712142023272aa4a6dd1500088983cac9c3
@@ -110,6 +120,16 @@ entries:
   mlperf-server-flux:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2024-01-11T16:18:26.307772255Z"
+    description: A Helm chart for Kubernetes
+    digest: 480e8ebc398ed9c23531fb663224cee7d6d3dd12eeb22b2f3f51c951f2d24ae5
+    name: mlperf-server-flux
+    type: application
+    urls:
+    - https://github.com/Orfeasfil/helm-charts/releases/download/mlperf-server-flux-0.1.1/mlperf-server-flux-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2024-01-11T16:10:46.505218192Z"
     description: A Helm chart for Kubernetes
     digest: 7a2436d287550f315cad50da90d091fec8ea061eb264029b8fb581b638e1732a
@@ -118,4 +138,4 @@ entries:
     urls:
     - https://github.com/Orfeasfil/helm-charts/releases/download/mlperf-server-flux-0.1.0/mlperf-server-flux-0.1.0.tgz
     version: 0.1.0
-generated: "2024-01-11T16:10:46.50523836Z"
+generated: "2024-01-11T16:18:26.307795899Z"
