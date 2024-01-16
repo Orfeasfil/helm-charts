@@ -3,6 +3,10 @@ kind: ServiceAccount
 metadata:
   name: {{ .Values.rbacDeleteEndpointSlicesHook }}-sa
   namespace: mlperf
+  annotations:
+    "helm.sh/hook": post-delete
+    "helm.sh/hook-weight": "1"
+    "helm.sh/hook-delete-policy": hook-succeeded,hook-failed
 
 ---
 
@@ -11,6 +15,10 @@ kind: Role
 metadata:
   name: {{ .Values.rbacDeleteEndpointSlicesHook }}
   namespace: mlperf
+  annotations:
+    "helm.sh/hook": post-delete
+    "helm.sh/hook-weight": "1"
+    "helm.sh/hook-delete-policy": hook-succeeded,hook-failed
 rules:
 - apiGroups: [""]
   resources: ["endpointslices"]
@@ -26,6 +34,10 @@ kind: RoleBinding
 metadata:
   name: {{ .Values.rbacDeleteEndpointSlicesHook }}-binding
   namespace: mlperf
+  annotations:
+    "helm.sh/hook": post-delete
+    "helm.sh/hook-weight": "1"
+    "helm.sh/hook-delete-policy": hook-succeeded,hook-failed
 subjects:
 - kind: ServiceAccount
   name: {{ .Values.rbacDeleteEndpointSlicesHook }}-sa
@@ -41,6 +53,10 @@ kind: PropagationPolicy
 metadata:
   name: {{ .Values.rbacDeleteEndpointSlicesHook }}-policy
   namespace: mlperf
+  annotations:
+    "helm.sh/hook": post-delete
+    "helm.sh/hook-weight": "1"
+    "helm.sh/hook-delete-policy": hook-succeeded,hook-failed
 spec:
   resourceSelectors:
     - apiVersion: v1
