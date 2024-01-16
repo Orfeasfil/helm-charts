@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ .Values.deleteEndpointSlices }}
+  namespace: mlperf
+  annotations:
+    "helm.sh/hook": post-delete
+    "helm.sh/hook-weight": "1"
+    "helm.sh/hook-delete-policy": hook-succeeded,hook-failed
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: kubectl-container
+        image: bitnami/kubectl  # Use an image with kubectl installed
+        command: ["/bin/sh", "-c"]
+        args:
+        - >
+          {{ .Values.deleteEndpointSlices }}="$(kubectl get endpointslice -n mlperf | awk '$1 ~ /^ *{{ .Values.name }}/' | awk '{ print $1 }' | tr '\n' ' ')" &&
+          kubectl delete endpointslices -n mlperf ${{ .Values.deleteEndpointSlices }}
