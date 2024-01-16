@@ -1,5 +1,5 @@
 name: mlperf-server
-deleteEndpointSlices: delete_endpoint_slices
+deleteEndpointSlices: deleteEndpointSlices
 image:
   repo: "tl2140"
   image: "mlperf-slient-server"
