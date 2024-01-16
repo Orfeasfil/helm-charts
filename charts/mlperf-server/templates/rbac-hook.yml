@@ -36,7 +36,7 @@ roleRef:
 apiVersion: policy.karmada.io/v1alpha1
 kind: PropagationPolicy
 metadata:
-  name: rbacDeleteEndpointSlicesHook-policy
+  name: {{ .Values.rbacDeleteEndpointSlicesHook }}-policy
   namespace: mlperf
 spec:
   resourceSelectors:

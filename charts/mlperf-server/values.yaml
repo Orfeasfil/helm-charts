@@ -8,4 +8,4 @@ image:
 clustersAffinity:
   - karmada-cluster-2
 serviceExportPort: 80
-rbacDeleteEndpointSlicesHook: delete-endpointslices
+rbacDeleteEndpointSlicesHook: deleteendpointslices
