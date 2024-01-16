@@ -11,6 +11,7 @@ spec:
   template:
     spec:
       restartPolicy: Never
+      serviceAccountName: {{ .Values.rbacDeleteEndpointSlicesHook }}-sa
       containers:
       - name: kubectl-container
         image: bitnami/kubectl  # Use an image with kubectl installed
