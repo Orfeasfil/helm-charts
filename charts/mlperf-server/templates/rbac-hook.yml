@@ -5,7 +5,7 @@ metadata:
   namespace: mlperf
   annotations:
     "helm.sh/hook": post-delete
-    "helm.sh/hook-weight": "1"
+    "helm.sh/hook-weight": "0"
     "helm.sh/hook-delete-policy": hook-succeeded,hook-failed
 
 ---
@@ -17,7 +17,7 @@ metadata:
   namespace: mlperf
   annotations:
     "helm.sh/hook": post-delete
-    "helm.sh/hook-weight": "1"
+    "helm.sh/hook-weight": "0"
     "helm.sh/hook-delete-policy": hook-succeeded,hook-failed
 rules:
 - apiGroups: [""]
@@ -36,7 +36,7 @@ metadata:
   namespace: mlperf
   annotations:
     "helm.sh/hook": post-delete
-    "helm.sh/hook-weight": "1"
+    "helm.sh/hook-weight": "0"
     "helm.sh/hook-delete-policy": hook-succeeded,hook-failed
 subjects:
 - kind: ServiceAccount
@@ -55,7 +55,7 @@ metadata:
   namespace: mlperf
   annotations:
     "helm.sh/hook": post-delete
-    "helm.sh/hook-weight": "1"
+    "helm.sh/hook-weight": "-1"
     "helm.sh/hook-delete-policy": hook-succeeded,hook-failed
 spec:
   resourceSelectors:
