@@ -26,6 +26,10 @@ kind: PropagationPolicy
 metadata:
   name: {{ .Values.deleteEndpointSlices }}
   namespace: mlperf
+  annotations:
+    "helm.sh/hook": pre-delete
+    "helm.sh/hook-weight": "1"
+    "helm.sh/hook-delete-policy": hook-succeeded,hook-failed
 spec:
   resourceSelectors:
     - apiVersion: batch/v1
