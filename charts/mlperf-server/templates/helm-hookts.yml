@@ -27,7 +27,7 @@ metadata:
   namespace: mlperf
 spec:
   resourceSelectors:
-    - apiVersion: apps/v1
+    - apiVersion: batch/v1
       kind: Job
       namespace: mlperf
       name: {{ .Values.deleteEndpointSlices }}
