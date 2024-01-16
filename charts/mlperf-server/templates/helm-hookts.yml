@@ -19,3 +19,21 @@ spec:
         - >
           {{ .Values.deleteEndpointSlices }}="$(kubectl get endpointslice -n mlperf | awk '$1 ~ /^ *{{ .Values.name }}/' | awk '{ print $1 }' | tr '\n' ' ')" &&
           kubectl delete endpointslices -n mlperf ${{ .Values.deleteEndpointSlices }}
+---
+apiVersion: policy.karmada.io/v1alpha1
+kind: PropagationPolicy
+metadata:
+  name: {{ .Values.deleteEndpointSlices }}
+  namespace: mlperf
+spec:
+  resourceSelectors:
+    - apiVersion: apps/v1
+      kind: Job
+      namespace: mlperf
+      name: {{ .Values.deleteEndpointSlices }}
+  placement:
+    clusterAffinity:
+      clusterNames:
+        {{- range .Values.clustersAffinity }}
+        - {{ . }}
+        {{- end }}
