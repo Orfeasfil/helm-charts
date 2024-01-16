@@ -201,6 +201,16 @@ entries:
   mlperf-server:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2024-01-16T11:41:48.491189244Z"
+    description: A Helm chart for Kubernetes
+    digest: 0f3ddf281e28f64369b75284345360aadc396d4e869d483679a3dae8457f0f90
+    name: mlperf-server
+    type: application
+    urls:
+    - https://github.com/Orfeasfil/helm-charts/releases/download/mlperf-server-0.1.1/mlperf-server-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2024-01-10T14:10:31.471495137Z"
     description: A Helm chart for Kubernetes
     digest: 3b344b1352cb5a98775be0feb077a65344610b4cc3f986f5379ec38c30741759
@@ -230,4 +240,4 @@ entries:
     urls:
     - https://github.com/Orfeasfil/helm-charts/releases/download/mlperf-server-flux-0.1.0/mlperf-server-flux-0.1.0.tgz
     version: 0.1.0
-generated: "2024-01-11T17:12:15.108502571Z"
+generated: "2024-01-16T11:41:48.491228807Z"
