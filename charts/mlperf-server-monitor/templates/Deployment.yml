@@ -35,7 +35,8 @@ metadata:
     app: {{ .Values.name }}
 spec:
   ports:
-  - port: 80
+  - name: default
+    port: 80
     targetPort: 8000
   - name: {{ .Values.name }}
     protocol: TCP
