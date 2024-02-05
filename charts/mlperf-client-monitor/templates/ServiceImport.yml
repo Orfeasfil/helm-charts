@@ -1,0 +1,28 @@
+apiVersion: multicluster.x-k8s.io/v1alpha1
+kind: ServiceImport
+metadata:
+  name: {{ .Values.serviceImportName }}
+  namespace: mlperf
+spec:
+  type: ClusterSetIP
+  ports:
+  - port: {{ .Values.serviceImportPort }}
+    protocol: TCP
+---
+apiVersion: policy.karmada.io/v1alpha1
+kind: PropagationPolicy
+metadata:
+  name: {{ .Values.serviceImportName }}-import
+  namespace: mlperf
+spec:
+  resourceSelectors:
+    - apiVersion: multicluster.x-k8s.io/v1alpha1
+      kind: ServiceImport
+      name: {{ .Values.serviceImportName }}
+      namespace: mlperf
+  placement:
+    clusterAffinity:
+      clusterNames:
+        {{- range .Values.clustersAffinity }}
+        - {{ . }}
+        {{- end }}

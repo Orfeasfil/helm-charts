@@ -1,0 +1,11 @@
+name: mlperf-client
+image:
+  repo: "tl2140"
+  image: "mlperf-slient-server"
+  tag: "client_cpu_nepheleMonitor"
+clustersAffinity:
+  - karmada-cluster-1
+serviceImportPort: 80
+serviceImportName: mlperf-server
+servicePort: 8080
+monitor: True
