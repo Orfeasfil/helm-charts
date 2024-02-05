@@ -1,0 +1,12 @@
+name: mlperf-server
+deleteEndpointSlices: deleteendpointslices
+image:
+  repo: "tl2140"
+  image: "mlperf-slient-server"
+  tag: "server_cpu_nepheleMonitor"
+  port: 8000
+clustersAffinity:
+  - karmada-cluster-2
+serviceExportPort: 80
+rbacDeleteEndpointSlicesHook: deleteendpointslices
+monitor: True
