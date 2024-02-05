@@ -20,10 +20,11 @@ spec:
         image: {{ .Values.image.repo }}/{{ .Values.image.image }}:{{ .Values.image.tag }}
         ports:
         - containerPort: {{ .Values.image.port }}
-      {{- if .Values.monitor }}
-        - name: MONITOR
-          value: "True"
-      {{- end }}
+        {{- if .Values.monitor }}
+        env:
+          - name: MONITOR
+            value: "True"
+        {{- end }}
 ---
 apiVersion: v1
 kind: Service
