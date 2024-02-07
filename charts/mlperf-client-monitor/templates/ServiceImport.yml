@@ -6,7 +6,8 @@ metadata:
 spec:
   type: ClusterSetIP
   ports:
-  - port: {{ .Values.serviceImportPort }}
+  - name: default
+    port: {{ .Values.serviceImportPort }}
     protocol: TCP
 ---
 apiVersion: policy.karmada.io/v1alpha1
