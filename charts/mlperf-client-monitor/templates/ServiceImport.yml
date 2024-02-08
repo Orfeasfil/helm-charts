@@ -6,7 +6,7 @@ metadata:
 spec:
   type: ClusterSetIP
   ports:
-  - name: default
+  - name: {{ .Values.serviceImportPortName }}-default
     port: {{ .Values.serviceImportPort }}
     protocol: TCP
 ---

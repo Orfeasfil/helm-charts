@@ -7,5 +7,6 @@ clustersAffinity:
   - karmada-cluster-1
 serviceImportPort: 80
 serviceImportName: mlperf-server
+serviceImportPortName: mlperf-server
 servicePort: 8080
 monitor: True

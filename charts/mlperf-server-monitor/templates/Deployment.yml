@@ -36,10 +36,10 @@ metadata:
     app: {{ .Values.name }}
 spec:
   ports:
-  - name: default
+  - name: {{ .Values.name }}-default
     port: 80
     targetPort: 8000
-  - name: {{ .Values.name }}
+  - name: {{ .Values.name }}-monitor
     protocol: TCP
     port: 8080
     targetPort: 8080
@@ -59,7 +59,7 @@ spec:
     matchLabels:
       app: {{ .Values.name }}
   endpoints:
-  - port: {{ .Values.name }}
+  - port: {{ .Values.name }}-monitor
 {{- end }}
 ---
 apiVersion: policy.karmada.io/v1alpha1
