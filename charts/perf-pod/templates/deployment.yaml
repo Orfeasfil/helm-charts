@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.name }}
+  labels:
+    app: perf
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: perf
+  template:
+    metadata:
+      labels:
+        app: perf
+    spec:
+      containers:
+      - name: perf
+        imagePullPolicy: Always
+        image: {{ .Values.image.repo }}/{{ .Values.image.image }}:{{ .Values.image.tag }}
+        ports:
+        - containerPort: {{ .Values.image.port }}
+        securityContext:
+          privileged: true
+        env:
+        - name: PERF_COMMAND
+          value: {{ .Values.perf_command }}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.name }}
+  labels:
+    app: perf
+spec:
+  selector:
+    app: perf  # This must match the label specified in deployment's template.metadata.labels
+  ports:
+  - name: {{ .Values.name }}
+    protocol: TCP
+    port: {{ .Values.service.port }}  # Port on which the service is exposed
+    targetPort: {{ .Values.image.port }}  # Container port to which the service routes
+  type: {{ .Values.service.type }}  # Default type, exposing the service within the cluster
+
+---
+

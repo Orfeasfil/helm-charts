@@ -1,0 +1,12 @@
+name: perf-pod
+image:
+  repo: "tl2140"
+  image: "perf-nephele"
+  tag: "perf-pod"
+  port: 8000
+service:
+  port: 80
+  type: ClusterIP
+perf_command: "perf stat -e cycles,instructions,cache-misses,context-switches -I 100"
+serviceMonitor:
+  scrapeInterval: 1s

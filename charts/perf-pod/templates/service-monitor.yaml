@@ -1,0 +1,11 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ .Values.name }}
+spec:
+  selector:
+    matchLabels:
+      app: perf  # This should match the labels of the service you want to monitor
+  endpoints:
+  - port: {{ .Values.name }}  # This should match the service port, not the container port
+    interval: {{ .Values.serviceMonitor.scrapeInterval }}  # Scrape interval
