@@ -482,4 +482,15 @@ entries:
     urls:
     - https://github.com/Orfeasfil/helm-charts/releases/download/mlperf-server-monitor-0.1.0/mlperf-server-monitor-0.1.0.tgz
     version: 0.1.0
-generated: "2024-02-08T09:31:45.489914342Z"
+  perf-pod:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-04-24T10:03:38.47872426Z"
+    description: A pod that exports perf metrics to prometheus via prometheus client.
+    digest: 12178af9dbe08004897793d00460412074ef83b3cd11ccbd583d8ae72db39511
+    name: perf-pod
+    type: application
+    urls:
+    - https://github.com/Orfeasfil/helm-charts/releases/download/perf-pod-0.1.0/perf-pod-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-04-24T10:03:38.478811763Z"
