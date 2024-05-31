@@ -482,6 +482,17 @@ entries:
     urls:
     - https://github.com/Orfeasfil/helm-charts/releases/download/mlperf-server-monitor-0.1.0/mlperf-server-monitor-0.1.0.tgz
     version: 0.1.0
+  nepheleMonitor-counter-test:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-05-31T08:47:43.908058143Z"
+    description: A simple pod the exports an increasing counter using nepheleMonitor
+    digest: fafe893c50b27ddff06d4079468c2dceaaf3d9efdb982a56d2ec7ead818a7e32
+    name: nepheleMonitor-counter-test
+    type: application
+    urls:
+    - https://github.com/Orfeasfil/helm-charts/releases/download/nepheleMonitor-counter-test-0.1.0/nepheleMonitor-counter-test-0.1.0.tgz
+    version: 0.1.0
   perf-pod:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -493,4 +504,4 @@ entries:
     urls:
     - https://github.com/Orfeasfil/helm-charts/releases/download/perf-pod-0.1.0/perf-pod-0.1.0.tgz
     version: 0.1.0
-generated: "2024-04-24T10:03:38.478811763Z"
+generated: "2024-05-31T08:47:43.908483277Z"
