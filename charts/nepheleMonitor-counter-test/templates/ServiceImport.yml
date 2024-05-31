@@ -6,7 +6,8 @@ metadata:
 spec:
   type: ClusterSetIP
   ports:
-  - port: "{{ .Values.name }}-monitor"
+  - name: {{ .Values.name }}-monitor
+    port: 8000 
     protocol: TCP
 
 ---
