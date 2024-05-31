@@ -484,6 +484,16 @@ entries:
     version: 0.1.0
   nepheleMonitor-counter-test:
   - apiVersion: v2
+    appVersion: 1.16.1
+    created: "2024-05-31T08:54:25.754724914Z"
+    description: A simple pod the exports an increasing counter using nepheleMonitor
+    digest: 5a6762da94eebf40aaae8170bd5a47ccb77182375a30b6778d0ab82e983c9b6a
+    name: nepheleMonitor-counter-test
+    type: application
+    urls:
+    - https://github.com/Orfeasfil/helm-charts/releases/download/nepheleMonitor-counter-test-0.1.1/nepheleMonitor-counter-test-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
     appVersion: 1.16.0
     created: "2024-05-31T08:47:43.908058143Z"
     description: A simple pod the exports an increasing counter using nepheleMonitor
@@ -504,4 +514,4 @@ entries:
     urls:
     - https://github.com/Orfeasfil/helm-charts/releases/download/perf-pod-0.1.0/perf-pod-0.1.0.tgz
     version: 0.1.0
-generated: "2024-05-31T08:47:43.908483277Z"
+generated: "2024-05-31T08:54:25.754871948Z"
