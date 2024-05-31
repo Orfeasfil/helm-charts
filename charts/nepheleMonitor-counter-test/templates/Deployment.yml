@@ -1,0 +1,86 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.name }}
+  namespace: nephele-monitor-test
+  labels:
+    app: {{ .Values.name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.name }}
+    spec:
+      containers:
+      - name: {{ .Values.name }}
+        image: {{ .Values.image.repo }}/{{ .Values.image.image }}:{{ .Values.image.tag }}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: {{ .Values.image.port }}
+        {{- if .Values.monitor }}
+        env:
+          - name: MONITOR
+            value: "True"
+        {{- end }}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.name }}
+  namespace: nephele-monitor-test
+  labels:
+    app: {{ .Values.name }}
+spec:
+  ports:
+  - name: {{ .Values.name }}-monitor
+    protocol: TCP
+    port: 8000
+    targetPort: 8000
+  selector:
+    app: {{ .Values.name }}
+
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ .Values.name }}
+  namespace: nephele-monitor-test
+  labels:
+    release: prom-stack
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.name }}
+  endpoints:
+  - port: {{ .Values.name }}-monitor
+---
+apiVersion: policy.karmada.io/v1alpha1
+kind: PropagationPolicy
+metadata:
+  name: {{ .Values.name }}
+  namespace: nephele-monitor-test
+spec:
+  resourceSelectors:
+    - apiVersion: apps/v1
+      kind: Deployment
+      namespace: nephele-monitor-test
+      name: {{ .Values.name }}
+    - apiVersion: v1
+      kind: Service
+      namespace: nephele-monitor-test
+      name: {{ .Values.name }}
+    - apiVersion: monitoring.coreos.com/v1
+      kind: ServiceMonitor
+      namespace: nephele-monitor-test
+      name: {{ .Values.name }}
+  placement:
+    clusterAffinity:
+      clusterNames:
+        {{- range .Values.clustersAffinity }}
+        - {{ . }}
+        {{- end }}

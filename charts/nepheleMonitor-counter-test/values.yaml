@@ -1,0 +1,11 @@
+name: nephele-monitor
+monitor: true
+image:
+  repo: "tl2140"
+  image: "nephele-monitor-test"
+  tag: "counter-test"
+  port: 8000
+clustersAffinity:
+  - karmada-cluster-1
+clustersAffinityServiceImport:
+  - karmada-cluster-2
