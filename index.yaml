@@ -515,6 +515,16 @@ entries:
     version: 0.1.0
   nepheleMonitor-gauge-test:
   - apiVersion: v2
+    appVersion: 1.16.2
+    created: "2024-06-04T11:06:44.722108389Z"
+    description: A Helm chart for Kubernetes
+    digest: 6002ca56301e388a6df0c0d154848f52252f17d65257be00b3d017249a95cc76
+    name: nepheleMonitor-gauge-test
+    type: application
+    urls:
+    - https://github.com/Orfeasfil/helm-charts/releases/download/nepheleMonitor-gauge-test-0.1.2/nepheleMonitor-gauge-test-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
     appVersion: 1.16.1
     created: "2024-06-04T11:02:47.064747648Z"
     description: A Helm chart for Kubernetes
@@ -545,4 +555,4 @@ entries:
     urls:
     - https://github.com/Orfeasfil/helm-charts/releases/download/perf-pod-0.1.0/perf-pod-0.1.0.tgz
     version: 0.1.0
-generated: "2024-06-04T11:02:47.064858825Z"
+generated: "2024-06-04T11:06:44.72237839Z"
