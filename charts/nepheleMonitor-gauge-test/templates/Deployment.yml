@@ -19,10 +19,6 @@ spec:
       - name: {{ .Values.name }}
         image: {{ .Values.image.repo }}/{{ .Values.image.image }}:{{ .Values.image.tag }}
         imagePullPolicy: Always
-        ports:
-        - containerPort: {{ .Values.image.port_prometheus }}
-          name: {{ .Values.name }}-monitor
-        - containerPort: {{ .Values.image.port_rest }}
           name: {{ .Values.name }}-rest
         {{- if .Values.monitor }}
         env:
