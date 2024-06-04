@@ -19,7 +19,6 @@ spec:
       - name: {{ .Values.name }}
         image: {{ .Values.image.repo }}/{{ .Values.image.image }}:{{ .Values.image.tag }}
         imagePullPolicy: Always
-          name: {{ .Values.name }}-rest
         {{- if .Values.monitor }}
         env:
           - name: MONITOR
