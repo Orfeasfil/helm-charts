@@ -4,7 +4,8 @@ image:
   repo: "tl2140"
   image: "nephele-monitor-test"
   tag: "gauge-test"
-  port: 8000
+  port_prometheus: 8000
+  port_rest: 5000
 clustersAffinity:
   - karmada-cluster-1
 clustersAffinityServiceImport:

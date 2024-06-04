@@ -20,7 +20,10 @@ spec:
         image: {{ .Values.image.repo }}/{{ .Values.image.image }}:{{ .Values.image.tag }}
         imagePullPolicy: Always
         ports:
-        - containerPort: {{ .Values.image.port }}
+        - containerPort: {{ .Values.image.port_prometheus }}
+          name: {{ .Values.name }}-monitor
+        - containerPort: {{ .Values.image.port_rest }}
+          name: {{ .Values.name }}-rest
         {{- if .Values.monitor }}
         env:
           - name: MONITOR
@@ -39,8 +42,12 @@ spec:
   ports:
   - name: {{ .Values.name }}-monitor
     protocol: TCP
-    port: 8000
-    targetPort: 8000
+    port: {{ .Values.image.port_prometheus }}
+    targetPort: {{ .Values.image.port_prometheus }}
+  - name: {{ .Values.name }}-rest
+    protocol: TCP
+    port: {{ .Values.image.port_rest }}
+    targetPort: {{ .Values.image.port_rest }}
   selector:
     app: {{ .Values.name }}
 
