@@ -6,11 +6,11 @@ metadata:
 spec:
   type: ClusterSetIP
   ports:
-  - name: {{ .Values.name }}-rest
-    port: {{ .Values.image.port_rest }} 
-    protocol: TCP
   - name: {{ .Values.name }}-monitor
     port: {{ .Values.image.port_prometheus }} 
+    protocol: TCP
+  - name: {{ .Values.name }}-rest
+    port: {{ .Values.image.port_rest }} 
     protocol: TCP
 
 ---
