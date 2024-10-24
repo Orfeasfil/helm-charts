@@ -1,4 +1,4 @@
-name: nephele-monitor-gauge
+name: nephele-monitor-g
 monitor: true
 image:
   repo: "tl2140"
