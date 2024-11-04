@@ -84,8 +84,27 @@ spec:
       namespace: nephele-monitor-test
       name: {{ .Values.name }}
   placement:
-    clusterAffinity:
-      clusterNames:
-        {{- range .Values.clustersAffinity }}
-        - {{ . }}
-        {{- end }}
+    replicaScheduling:
+      replicaDivisionPreference: Weighted
+      replicaSchedulingType: Divided
+      weightPreference:
+        staticWeightList:
+          {{- range .Values.clustersAffinity }}
+          - targetCluster:
+              clusterNames:
+                - {{ . }}
+            weight: 1
+          {{- end }}
+          # - targetCluster:
+          #     clusterNames:
+          #       - member1
+          #   weight: 1
+          # - targetCluster:
+          #     clusterNames:
+          #       - member2
+          #   weight: 1
+    # clusterAffinity:
+    #   clusterNames:
+    #     {{- range .Values.clustersAffinity }}
+    #     - {{ . }}
+    #     {{- end }}
